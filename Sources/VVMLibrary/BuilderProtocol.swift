@@ -1,11 +1,11 @@
 //
-//  BuilderViewProtocol.swift
+//  BuilderProtocol.swift
 //  
 //
 //  Created by Senior Developer on 10.09.2022.
 //
 
-public protocol BuilderViewProtocol: AnyObject {
+public protocol BuilderProtocol: AnyObject {
     
     associatedtype ViewModel: ViewModelProtocol
     associatedtype View     : ViewProtocol
