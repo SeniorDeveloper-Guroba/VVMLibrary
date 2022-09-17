@@ -13,8 +13,8 @@ public protocol ViewProtocol where Self: AnyObject {
     
     var viewProperties: ViewProperties? { get set }
     
-    var updateViewProperties: Closure<ViewProperties>? { get set }
-    var createViewProperties: Closure<ViewProperties>? { get set }
+    var updateViewProperties: Closure<ViewProperties?>? { get set }
+    var createViewProperties: Closure<ViewProperties?>? { get set }
     
     func update()
 }
