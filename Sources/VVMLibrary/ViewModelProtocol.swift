@@ -13,7 +13,7 @@ extension ViewModelProtocol {
     
     // MARK: - Привязываем View с ViewModel
     public func bindView(with mainView: MainView) {
-        mainView.update()
+        mainView.bind()
         self.updateViewProperties = mainView.updateViewProperties
         self.createViewProperties = mainView.createViewProperties
     }
