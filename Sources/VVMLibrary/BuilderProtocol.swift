@@ -15,16 +15,3 @@ public protocol BuilderProtocol: AnyObject {
     var view     : View      { get set }
     
 }
-
-//extension BuilderProtocol {
-//    
-//    public static func create() -> Self {
-//        let viewController = View()
-//        let viewModel      = ViewModel()
-//        viewController.loadViewIfNeeded()
-//        viewModel.bindView(with: viewController)
-//        let selfBuilder = Self(with: viewController,
-//                               with: viewModel)
-//        return selfBuilder
-//    }
-//}
