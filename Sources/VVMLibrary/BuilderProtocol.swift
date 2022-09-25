@@ -13,5 +13,4 @@ public protocol BuilderProtocol: AnyObject {
     
     var viewModel: ViewModel { get set }
     var view     : View      { get set }
-    
 }
