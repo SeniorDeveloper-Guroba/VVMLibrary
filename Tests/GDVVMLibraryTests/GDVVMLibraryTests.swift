@@ -1,5 +1,5 @@
 import XCTest
-@testable import VVMLibrary
+@testable import GDVVMLibrary
 
 final class VVMLibraryTests: XCTestCase {
     
