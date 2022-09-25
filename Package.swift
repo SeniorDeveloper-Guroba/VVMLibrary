@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "VVMLibrary",
+    name: "GDVVMLibrary",
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "VVMLibrary",
-            targets: ["VVMLibrary"]),
+            name: "GDVVMLibrary",
+            targets: ["GDVVMLibrary"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -19,10 +19,10 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "VVMLibrary",
+            name: "GDVVMLibrary",
             dependencies: []),
         .testTarget(
-            name: "VVMLibraryTests",
-            dependencies: ["VVMLibrary"]),
+            name: "GDVVMLibraryTests",
+            dependencies: ["GDVVMLibrary"]),
     ]
 )
