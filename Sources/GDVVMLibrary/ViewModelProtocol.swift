@@ -1,21 +1,60 @@
+//import Foundation
+//
+//public protocol ViewModelProtocol where Self: AnyObject {
+//    
+//    // MARK: - Основное View
+//    associatedtype MainView: ViewProtocol
+//    
+//    var updateViewProperties: Closure<MainView.ViewProperties?>? { get set }
+//    var createViewProperties: Closure<MainView.ViewProperties?>? { get set }
+//}
+//
+//extension ViewModelProtocol {
+//    
+//    // MARK: - Привязываем View с ViewModel
+//    public func bindView(with mainView: MainView) {
+//        mainView.bind()
+//        self.updateViewProperties = mainView.updateViewProperties
+//        self.createViewProperties = mainView.createViewProperties
+//    }
+//}
 import Foundation
 
 public protocol ViewModelProtocol where Self: AnyObject {
     
     // MARK: - Основное View
-    associatedtype MainView: ViewProtocol
+    associatedtype View : ViewProtocol
+    associatedtype State
     
-    var updateViewProperties: Closure<MainView.ViewProperties?>? { get set }
-    var createViewProperties: Closure<MainView.ViewProperties?>? { get set }
+    var viewProperties: View.ViewProperties? { get set }
+    
+    var bind: ClosureTwo<Properties, View.ViewProperties?>? { get set }
 }
 
 extension ViewModelProtocol {
     
     // MARK: - Привязываем View с ViewModel
-    public func bindView(with mainView: MainView) {
-        mainView.bind()
-        self.updateViewProperties = mainView.updateViewProperties
-        self.createViewProperties = mainView.createViewProperties
+    public func bind(with view: View) {
+        self.bind = { properties, viewProperties in
+            switch properties {
+                case .create:
+                    view.create(with: viewProperties)
+                case .update:
+                    view.update(with: viewProperties)
+            }
+        }
+    }
+    
+    public func update(with viewProperties: View.ViewProperties?) {
+        self.bind?(.update, viewProperties)
+    }
+    
+    public func create(with viewProperties: View.ViewProperties?) {
+        self.bind?(.create, viewProperties)
     }
 }
 
+public enum Properties {
+    case create
+    case update
+}
