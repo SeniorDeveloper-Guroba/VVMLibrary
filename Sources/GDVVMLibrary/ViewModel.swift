@@ -1,6 +1,6 @@
 import Foundation
 
-public class GDViewModel<View: ViewProtocol> {
+public class ViewModel<View: ViewProtocol> {
     
     var update: Closure<View.ViewProperties?>?
     var create: Closure<View.ViewProperties?>?
