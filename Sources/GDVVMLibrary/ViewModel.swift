@@ -1,6 +1,6 @@
 import Foundation
 
-public class ViewModel<View: ViewProtocol> {
+open class ViewModel<View: ViewProtocol> {
     
     public var update: Closure<View.ViewProperties?>?
     public var create: Closure<View.ViewProperties?>?
@@ -10,9 +10,4 @@ public class ViewModel<View: ViewProtocol> {
         self.update = view.update(with:)
         self.create = view.create(with:)
     }
-}
-
-public enum Properties {
-    case create(ClosureEmpty)
-    case update(ClosureEmpty)
 }
