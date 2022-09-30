@@ -2,8 +2,8 @@ import Foundation
 
 public class ViewModel<View: ViewProtocol> {
     
-    var update: Closure<View.ViewProperties?>?
-    var create: Closure<View.ViewProperties?>?
+    public var update: Closure<View.ViewProperties?>?
+    public var create: Closure<View.ViewProperties?>?
     
     // MARK: - Привязываем View с ViewModel
     public func bind(with view: View) {
