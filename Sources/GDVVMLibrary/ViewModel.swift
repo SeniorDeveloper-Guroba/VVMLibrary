@@ -10,4 +10,6 @@ open class ViewModel<View: ViewProtocol> {
         self.update = view.update(with:)
         self.create = view.create(with:)
     }
+    
+    public init(){}
 }
