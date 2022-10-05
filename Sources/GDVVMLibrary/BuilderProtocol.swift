@@ -8,8 +8,9 @@ import UIKit
 
 public protocol BuilderProtocol: AnyObject {
     
-    associatedtype View: ViewProtocol
+    associatedtype V : ViewProtocol
+    associatedtype VM: ViewModel<V>
     
-    var viewModel: ViewModel<View> { get set }
-    var view     : View            { get set }
+    var viewModel: VM { get set }
+    var view     : V  { get set }
 }
