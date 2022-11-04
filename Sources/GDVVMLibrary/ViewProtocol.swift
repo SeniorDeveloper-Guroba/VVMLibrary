@@ -1,9 +1,4 @@
-//
-//  ViewProtocol.swift
-//  
-//
-//  Created by Senior Developer on 10.09.2022.
-//
+
 import Foundation
 
 public protocol ViewProtocol where Self: AnyObject {
@@ -12,8 +7,6 @@ public protocol ViewProtocol where Self: AnyObject {
     
     var viewProperties: ViewProperties? { get set }
     
-    var updateViewProperties: Closure<ViewProperties?>? { get }
-    var createViewProperties: Closure<ViewProperties?>? { get }
-    
-    func bind()
+    func create(with viewProperties: ViewProperties?)
+    func update(with viewProperties: ViewProperties?)
 }
