@@ -6,9 +6,11 @@ open class ViewModel<View: ViewProtocol> {
     public var create: Closure<View.ViewProperties?>?
     
     // MARK: - Привязываем View с ViewModel
-    public func bind(with view: View) {
-        self.update = view.update(with:)
-        self.create = view.create(with:)
+    public static func bind(with view: View) -> ViewModel? {
+        let viewModel = ViewModel<View>()
+        viewModel.update = view.update(with:)
+        viewModel.create = view.create(with:)
+        return viewModel as? Self
     }
     
     public init(){}
